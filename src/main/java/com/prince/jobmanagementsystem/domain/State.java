@@ -6,5 +6,4 @@ public enum State {
     RUNNING,
     SUCCESS,
     FAILED
-
 }

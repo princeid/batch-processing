@@ -1,6 +1,7 @@
 package com.prince.jobmanagementsystem;
 
 import com.prince.jobmanagementsystem.domain.Job;
+import com.prince.jobmanagementsystem.domain.Priority;
 import com.prince.jobmanagementsystem.jobs.CreateFileJob;
 import com.prince.jobmanagementsystem.jobs.EmailSendingJob;
 import com.prince.jobmanagementsystem.service.JobService;
@@ -9,8 +10,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.util.Iterator;
-import java.util.Queue;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.util.*;
 
 @SpringBootApplication
 public class JobManagementSystemApplication {
@@ -20,8 +22,9 @@ public class JobManagementSystemApplication {
 
 		Logger log = LoggerFactory.getLogger(JobManagementSystemApplication.class);
 
-		CreateFileJob createFileJob = new CreateFileJob();
-		EmailSendingJob emailSendingJob = new EmailSendingJob();
+		CreateFileJob createFileJob = new CreateFileJob(Priority.MEDIUM);
+//		createFileJob.setScheduledTime(Date.from(Instant.ofEpochMilli(1630180560000L)).getTime());
+		EmailSendingJob emailSendingJob = new EmailSendingJob(Priority.HIGH);
 
 		JobService jobService = new JobService();
 		jobService.addJob(createFileJob);
@@ -30,11 +33,7 @@ public class JobManagementSystemApplication {
 		log.info("CREATE FILE JOB STATE BEFORE RUN METHOD: {}", createFileJob.getState());
 		log.info("EMAIL SENDING JOB STATE BEFORE RUN METHOD: {}", emailSendingJob.getState());
 
-		Queue<Job> jobQueue = jobService.getJobQueue();
-
-		for (Job job : jobQueue) {
-			job.run();
-		}
+		jobService.runJobs();
 
 		log.info("CREATE FILE JOB STATE AFTER RUN METHOD: {}", createFileJob.getState());
 		log.info("EMAIL SENDING JOB STATE AFTER RUN METHOD: {}", emailSendingJob.getState());

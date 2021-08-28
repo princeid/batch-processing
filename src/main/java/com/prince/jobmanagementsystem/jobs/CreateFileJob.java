@@ -1,7 +1,7 @@
 package com.prince.jobmanagementsystem.jobs;
 
-import com.prince.jobmanagementsystem.JobManagementSystemApplication;
 import com.prince.jobmanagementsystem.domain.Job;
+import com.prince.jobmanagementsystem.domain.Priority;
 import com.prince.jobmanagementsystem.domain.State;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,8 +10,11 @@ import java.io.File;
 import java.io.IOException;
 
 public class CreateFileJob extends Job {
-
     Logger log = LoggerFactory.getLogger(CreateFileJob.class);
+
+    public CreateFileJob(Priority priority) {
+        super(priority);
+    }
 
     @Override
     public void run() {
@@ -35,4 +38,5 @@ public class CreateFileJob extends Job {
             e.printStackTrace();
         }
     }
+
 }

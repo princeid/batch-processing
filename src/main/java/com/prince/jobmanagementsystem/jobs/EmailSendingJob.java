@@ -2,6 +2,7 @@ package com.prince.jobmanagementsystem.jobs;
 
 import com.prince.jobmanagementsystem.JobManagementSystemApplication;
 import com.prince.jobmanagementsystem.domain.Job;
+import com.prince.jobmanagementsystem.domain.Priority;
 import com.prince.jobmanagementsystem.domain.State;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,15 +13,18 @@ import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
 public class EmailSendingJob extends Job {
-
     Logger log = LoggerFactory.getLogger(EmailSendingJob.class);
+
+    public EmailSendingJob(Priority priority) {
+        super(priority);
+    }
 
     @Override
     public void run() {
         setState(State.RUNNING);
         log.info("EMAIL SENDING JOB STATE IN RUN METHOD: {}", getState());
         log.info("Email Sending Job is Running...");
-        sendMail("writeprincedickson@yahoo.com");
+        sendMail("testemail@examplemail.test");
     }
 
     public void sendMail(String recipient) {
