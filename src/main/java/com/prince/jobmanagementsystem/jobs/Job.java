@@ -1,4 +1,7 @@
-package com.prince.jobmanagementsystem.domain;
+package com.prince.jobmanagementsystem.jobs;
+
+import com.prince.jobmanagementsystem.domain.Priority;
+import com.prince.jobmanagementsystem.domain.State;
 
 import java.util.Date;
 import java.util.TimerTask;

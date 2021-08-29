@@ -1,7 +1,7 @@
 package com.prince.jobmanagementsystem.service;
 
 import com.prince.jobmanagementsystem.JobManagementSystemApplication;
-import com.prince.jobmanagementsystem.domain.Job;
+import com.prince.jobmanagementsystem.jobs.Job;
 import com.prince.jobmanagementsystem.domain.Priority;
 import com.prince.jobmanagementsystem.jobs.CreateFileJob;
 import com.prince.jobmanagementsystem.jobs.EmailSendingJob;

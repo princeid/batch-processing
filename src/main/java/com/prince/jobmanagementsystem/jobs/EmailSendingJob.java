@@ -1,6 +1,5 @@
 package com.prince.jobmanagementsystem.jobs;
 
-import com.prince.jobmanagementsystem.domain.Job;
 import com.prince.jobmanagementsystem.domain.Priority;
 import com.prince.jobmanagementsystem.domain.State;
 import org.slf4j.Logger;

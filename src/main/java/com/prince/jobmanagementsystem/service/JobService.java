@@ -1,6 +1,6 @@
 package com.prince.jobmanagementsystem.service;
 
-import com.prince.jobmanagementsystem.domain.Job;
+import com.prince.jobmanagementsystem.jobs.Job;
 import com.prince.jobmanagementsystem.domain.State;
 import org.springframework.stereotype.Service;
 
