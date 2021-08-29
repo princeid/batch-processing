@@ -2,9 +2,11 @@ package com.prince.jobmanagementsystem.service;
 
 import com.prince.jobmanagementsystem.domain.Job;
 import com.prince.jobmanagementsystem.domain.State;
+import org.springframework.stereotype.Service;
 
 import java.util.*;
 
+@Service
 public class JobService {
     Timer t = new Timer();
 
@@ -29,6 +31,7 @@ public class JobService {
 
         for (Job job : jobQueue) {
             if (job.getScheduledTime() != null){
+                /* Run this job at the specified scheduled time */
                 t.schedule(job, job.getScheduledTime());
             }
             else {

@@ -1,6 +1,5 @@
 package com.prince.jobmanagementsystem;
 
-import com.prince.jobmanagementsystem.domain.Job;
 import com.prince.jobmanagementsystem.domain.Priority;
 import com.prince.jobmanagementsystem.jobs.CreateFileJob;
 import com.prince.jobmanagementsystem.jobs.EmailSendingJob;
@@ -11,8 +10,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.time.Instant;
-import java.time.LocalDate;
-import java.util.*;
+import java.util.Date;
 
 @SpringBootApplication
 public class JobManagementSystemApplication {
@@ -23,7 +21,7 @@ public class JobManagementSystemApplication {
 		Logger log = LoggerFactory.getLogger(JobManagementSystemApplication.class);
 
 		CreateFileJob createFileJob = new CreateFileJob(Priority.MEDIUM);
-//		createFileJob.setScheduledTime(Date.from(Instant.ofEpochMilli(1630180560000L)).getTime());
+		createFileJob.setScheduledTime(Date.from(Instant.ofEpochMilli(1630180560000L)));
 		EmailSendingJob emailSendingJob = new EmailSendingJob(Priority.HIGH);
 
 		JobService jobService = new JobService();
